@@ -90,10 +90,7 @@ export function FeaturesSection() {
             </div>
           ))}
         </div>
-
       </div>
-
-
     </section>
   )
 }

@@ -45,12 +45,12 @@ export function IntegrationsSection() {
     <section className="py-24 overflow-hidden">
       <div className="container">
         <div className="grid lg:grid-cols-2 items-center lg:gap-16">
-          <section>
+          <section className="max-md:flex max-md:flex-col max-md:items-center max-md:justify-center">
             <Tag>Integrations</Tag>
-            <h2 className="text-6xl font-medium mt-6">
+            <h2 className="text-6xl font-medium mt-6 max-md:text-center text-balance">
               Plays well with <span className="text-lime-400">others</span>
             </h2>
-            <p className="text-muted-foreground text-lg mt-4 text-balance">
+            <p className="text-muted-foreground text-lg mt-4 text-balance max-md:text-center">
               Layers seamlessly connects with your favorite tools, making it
               easy to plug into any workflow and collaborate across platforms.
             </p>

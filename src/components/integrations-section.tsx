@@ -1,3 +1,5 @@
+"use client"
+
 import {Tag} from "@/components/ui/tag";
 import figmaIcon from "@/assets/figma-logo.svg";
 import notionIcon from "@/assets/notion-logo.svg";
@@ -7,6 +9,8 @@ import framerIcon from "@/assets/framer-logo.svg";
 import githubIcon from "@/assets/github-logo.svg";
 import Image from "next/image";
 import {cn} from "@/lib/utils";
+import {motion} from "framer-motion";
+import {Fragment} from "react";
 
 const INTEGRATIONS = [
   {name: "Figma", icon: figmaIcon, description: "Figma is a collaborative interface design tool."},
@@ -22,21 +26,31 @@ type IntegrationType = typeof INTEGRATIONS
 interface IntegrationColumnProps {
   integrations: IntegrationType
   className?: string
+  reverseAnimation?: boolean
 }
 
-function IntegrationColumn({integrations, className}: IntegrationColumnProps) {
+function IntegrationColumn({integrations, className, reverseAnimation}: IntegrationColumnProps) {
   return (
-    <div className={cn("flex flex-col gap-4", className)}>
-      {integrations.map((integration) => (
-        <div key={integration.name} className="bg-neutral-900 border rounded-3xl p-6">
-          <div className="flex justify-center">
-            <Image src={integration.icon} alt={integration.name} className="size-24"/>
-          </div>
-          <h3 className="text-3xl text-center mt-6">{integration.name}</h3>
-          <p className="text-center text-foreground/50 mt-2 text-balance">{integration.description}</p>
-        </div>
+    <motion.div
+      initial={{y: reverseAnimation ? "-50%" : 0}}
+      animate={{y: reverseAnimation ? 0 : "-50%"}}
+      transition={{duration: 15, ease: "linear", repeat: Infinity}}
+      className={cn("flex flex-col gap-4", className)}
+    >
+      {Array.from({length: 2}).map((_, index) => (
+        <Fragment key={index}>
+          {integrations.map((integration) => (
+            <div key={integration.name} className="bg-neutral-900 border rounded-3xl p-6">
+              <div className="flex justify-center">
+                <Image src={integration.icon} alt={integration.name} className="size-24"/>
+              </div>
+              <h3 className="text-3xl text-center mt-6">{integration.name}</h3>
+              <p className="text-center text-foreground/50 mt-2 text-balance">{integration.description}</p>
+            </div>
+          ))}
+        </Fragment>
       ))}
-    </div>
+    </motion.div>
   )
 }
 
@@ -58,8 +72,14 @@ export function IntegrationsSection() {
           <section>
             <div
               className="h-[400px] lg:h-[800px] grid md:grid-cols-2 gap-4 mt-8 lg:mt-0 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
-              <IntegrationColumn integrations={INTEGRATIONS}/>
-              <IntegrationColumn integrations={INTEGRATIONS.slice().reverse()} className="max-md:hidden"/>
+              <IntegrationColumn
+                integrations={INTEGRATIONS}
+              />
+              <IntegrationColumn
+                integrations={INTEGRATIONS.slice().reverse()}
+                className="max-md:hidden"
+                reverseAnimation={true}
+              />
             </div>
           </section>
         </div>
@@ -67,4 +87,3 @@ export function IntegrationsSection() {
     </section>
   )
 }
-

@@ -2,6 +2,8 @@
 
 import {Tag} from "@/components/ui/tag";
 import {cn} from "@/lib/utils";
+import {useState} from "react";
+import {AnimatePresence, motion} from "framer-motion";
 
 const FAQS = [
   {
@@ -15,20 +17,20 @@ const FAQS = [
   },
   {
     question: "How do you handle version control?",
-    answer: ""
+    answer: "Every change in Layers is automatically saved and versioned. You can review history, restore previous versions, and create named versions for important milestones."
   },
   {
     question: "Can I work offline?",
-    answer: ""
+    answer: "Yes! Layers includes a robust offline mode. Changes sync automatically when you're back online, so you can keep working anywhere."
   },
   {
     question: "How does Layers handle collaboration?",
-    answer: "Layers is built for collaboration. You can invite"
+    answer: "Layers is built for collaboration. You can invite team members to your projects, share feedback, and work together in real-time."
   },
 ]
 
 export function FAQSection() {
-  const selectedIndex = 0
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   return (
     <section className="py-24">
@@ -39,21 +41,32 @@ export function FAQSection() {
         </h2>
         <div className="mt-12 flex flex-col gap-6 max-w-3xl">
           {FAQS.map((faq, index) => (
-            <div key={index} className="bg-neutral-900 rounded-2xl border border-foreground/10 p-6">
+            <div key={index} className="bg-neutral-900 rounded-2xl border border-foreground/10 p-6 cursor-pointer" onClick={() => setSelectedIndex(index)}>
               <div className="flex items-center justify-between">
                 <h3 className="font-medium text-lg">{faq.question}</h3>
                 <svg
                   xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                  className={cn("feather feather-plus text-lime-400 shrink-0", selectedIndex === index && "rotate-45 transition-transform")}
+                  className={cn("feather feather-plus text-lime-400 shrink-0", selectedIndex === index && "rotate-45 transition duration-300")}
                 >
                   <line x1="12" y1="5" x2="12" y2="19"/>
                   <line x1="5" y1="12" x2="19" y2="12"/>
                 </svg>
               </div>
-              <div className={cn("mt-4", selectedIndex !== index && "hidden")}>
-                <p className="text-muted-foreground ">{faq.answer}</p>
-              </div>
+              <AnimatePresence>
+                {selectedIndex === index && (
+                  <motion.div
+                    initial={{height: 0, marginTop: 0}}
+                    animate={{height: "auto", marginTop: 16}}
+                    exit={{height: 0, marginTop: 0}}
+                    className={cn("mt-4 overflow-hidden")}
+                  >
+                    <p className="text-muted-foreground">
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>

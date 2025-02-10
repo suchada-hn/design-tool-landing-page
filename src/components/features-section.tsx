@@ -1,3 +1,5 @@
+"use client"
+
 import {Tag} from "@/components/ui/tag";
 import {FeatureCard} from "@/components/ui/feature-card";
 import {Avatar, AvatarFallback} from "@/components/ui/avatar";
@@ -62,11 +64,20 @@ export function FeaturesSection() {
           <FeatureCard
             title="Interactive Prototyping"
             description="Engage your clients with prototypes that react to user actions"
-            className="md:col-span-2 lg:col-span-1"
+            className="md:col-span-2 lg:col-span-1 group"
           >
             <div className="aspect-video flex items-center justify-center w-full h-full">
-              <p className="text-4xl font-extrabold text-foreground/20 text-center">
-                We&apos;ve achieved <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">incredible</span> growth this year.
+              <p className="text-4xl font-extrabold text-foreground/20 group-hover:text-foreground/10 transition duration-500 text-center">
+                We&apos;ve achieved {" "}
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent relative">
+                  <span>incredible</span>
+                  <video
+                    src="/images/gif-incredible.mp4"
+                    autoPlay loop muted playsInline
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 rounded-2xl shadow-xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none"
+                  />
+                </span> {" "}
+                growth this year.
               </p>
             </div>
           </FeatureCard>
@@ -84,8 +95,11 @@ export function FeaturesSection() {
         </div>
         <div className="mt-8 flex flex-wrap gap-3 justify-center xl:max-w-screen-md">
           {FEATURES.map((feature, index) => (
-            <div key={index} className="bg-neutral-900 border inline-flex px-3 md:px-5 md:py-2 py-1.5 rounded-2xl items-center justify-center gap-3">
-              <span className="bg-lime-400 text-background size-5 rounded-full inline-flex items-center justify-center">&#10038;</span>
+            <div
+              key={index}
+              className="bg-neutral-900 border inline-flex px-3 md:px-5 md:py-2 py-1.5 rounded-2xl items-center justify-center gap-3 hover:scale-105 transition duration-500 group cursor-pointer"
+            >
+              <span className="bg-lime-400 text-background size-5 rounded-full inline-flex items-center justify-center group-hover:rotate-45 transition duration-500">&#10038;</span>
               <span className="font-medium md:text-lg">{feature}</span>
             </div>
           ))}

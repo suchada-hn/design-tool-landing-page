@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "Design Tool Landing Page",
-    description: "A sleek, dark-mode landing page built with Next.js 15, Tailwind CSS, Framer Motion & Shadcn UI. Optimized for performance with reusable components like the Pointer.",
+    description: "A sleek, dark-mode landing page built with Next.js 15, Tailwind CSS, Framer Motion & Shadcn UI. Built by Moussa.",
     images: [
       {
-        url: "https://design-tool-landing-page.vercel.app/preview.png",
+        url: "https://design-tool-lp.vercel.app/preview.png",
         width: 1200,
         height: 630,
         alt: "Design Tool Landing Page",

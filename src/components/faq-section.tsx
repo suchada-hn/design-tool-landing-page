@@ -35,7 +35,7 @@ export function FAQSection() {
       <div className="container flex flex-col items-center justify-center">
         <Tag>Faqs</Tag>
         <h2 className="text-6xl font-medium text-center max-w-xl mt-6">
-          Questions? We've got <span className="text-lime-400">answers</span>
+          Questions? We&apos;ve got <span className="text-lime-400">answers</span>
         </h2>
         <div className="mt-12 flex flex-col gap-6 max-w-3xl">
           {FAQS.map((faq, index) => (

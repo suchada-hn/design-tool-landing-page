@@ -30,7 +30,7 @@ export function HeroSection() {
             className="text-6xl md:text-7xl lg:text-8xl font-medium text-center tracking-tight mt-6 text-balance max-w-2xl lg:max-w-4xl">Impactful
             design, created effortlessly</h1>
           <p className="text-center text-xl text-muted-foreground mt-8 max-w-prose text-balance">
-            Design tools shouldn't slow down. Layers combines powerful features with an intuitive interface that keeps you
+            Design tools shouldn&apos;t slow down. Layers combines powerful features with an intuitive interface that keeps you
             in your creative flow.
           </p>
           <form className="flex items-center justify-between gap-2 border rounded-full p-2 mt-8 max-w-lg">

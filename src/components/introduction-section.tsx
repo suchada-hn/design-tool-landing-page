@@ -10,7 +10,7 @@ export function IntroductionSection() {
         <div className="text-4xl md:text-6xl lg:text-7xl text-center font-medium mt-10 text-pretty max-w-5xl lg:max-w-7xl">
           <span>Your creative process deserves better.</span>
           <span className="text-primary/15">{argument}</span>
-          <span className="text-lime-400">That's why we built Layers.</span>
+          <span className="text-lime-400">That&apos;s why we built Layers.</span>
         </div>
       </div>
     </section>

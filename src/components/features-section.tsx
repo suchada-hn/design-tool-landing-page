@@ -66,7 +66,7 @@ export function FeaturesSection() {
           >
             <div className="aspect-video flex items-center justify-center w-full h-full">
               <p className="text-4xl font-extrabold text-foreground/20 text-center">
-                We've achieved <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">incredible</span> growth this year.
+                We&apos;ve achieved <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">incredible</span> growth this year.
               </p>
             </div>
           </FeatureCard>

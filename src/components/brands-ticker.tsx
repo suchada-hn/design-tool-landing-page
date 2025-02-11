@@ -27,7 +27,7 @@ export function BrandsTicker() {
   return (
     <section className="overflow-x-clip pt-20 pb-24">
       <div className="container">
-        <h1 className="text-xl text-primary/50 text-center">Already chosen by those market leaders</h1>
+        <h1 className="text-xl text-primary/50 text-center text-pretty">Already chosen by those market leaders</h1>
         <div className="flex mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <motion.div
             animate={{x: "-50%"}} transition={{duration: 30, ease: "linear", repeat: Infinity}}

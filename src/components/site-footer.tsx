@@ -37,7 +37,7 @@ export default function SiteFooter() {
             Build by <a href="https://github.com/MrInspection" target="_blank" rel="noreferrer" className="underline underline-offset-4">Moussa</a>.
             The source is available on <a href="https://github.com/MrInspection/design-tool-landing-page" target="_blank" rel="noreferrer" className="underline underline-offset-4">GitHub</a>.
           </div>
-          <div>
+          <div className="max-md:hidden">
             <Link
               href="https://github.com/MrInspection/design-tool-landing-page"
               target="_blank" rel="noreferrer" className={cn(buttonVariants({variant: "outline", size: "sm"}))}
